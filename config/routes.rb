@@ -19,4 +19,6 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  root 'blogs#index'
 end
