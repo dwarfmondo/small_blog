@@ -5,12 +5,45 @@
     <%= csrf_meta_tags %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div id="site-wrapper">
+      <header role="banner" class="row collapse align-middle">
+        <div class="small-12 medium-6 large-4 columns">
+          <%= link_to "Small", root_path, id: 'branding' %>
+        </div>
+        <div class="small-12 medium-6 large-8 columns">
+          <div class="row">
+            <% if signed_in? %>
+              <div class="columns large-text-right">
+                <%= link_to "Start a Blog", new_blog_path, class: 'button hollow success' %>
+              </div>
+              <div class="columns shrink">
+                <a id="you" href="<%= user_path(current_user) %>" style="background-image: url(<%= current_user.gravatar_url %>)">
+                  <%= current_user.initial %>
+                </a>
+              </div>
+            <% else %>
+              <div class="columns text-right">
+                <%= link_to "Start a Blog", new_user_path, class: 'button hollow success' %>
+              </div>
+              <div class="columns shrink">
+                <%= link_to "Sign In", signin_path, class: 'button hollow secondary' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </header>
+      <main role="main">
+        <%= yield %>
+      </main>
+    </div>
+    <footer role="contentinfo" class="row align-middle">
+      <div class="small-12 columns text-center">
+        <p>Footer content</p>
+      </div>
+    </footer>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

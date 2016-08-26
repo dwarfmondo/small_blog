@@ -45,23 +45,23 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 16px;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #2199e8,
   secondary: #777,
-  success: #3adb76,
+  success: $color-green,
   warning: #ffae00,
   alert: $color-red,
 );
-$light-gray: #e6e6e6;
+$light-gray: $color-grey-light;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
-$white: #fefefe;
+$black: #333;
+$white: $color-white;
 $body-background: $white;
-$body-font-color: $black;
+$body-font-color: $color-blue-dark;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -233,19 +233,19 @@ $breadcrumbs-item-slash: true;
 // 11. Button
 // ----------
 
-$button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-padding: 0 1em;
+$button-margin: 0 0 0 0;
 $button-fill: solid;
 $button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background-hover: scale-color($button-background, $lightness: -10%);
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-sizes: (
-  tiny: 0.6rem,
-  small: 0.75rem,
-  default: 0.9rem,
-  large: 1.25rem,
+  tiny: 19px,
+  small: 24px,
+  default: 32px,
+  large: 48px,
 );
 $button-opacity-disabled: 0.25;
 
