@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :blogs
+
   has_secure_password
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
