@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:edit, :update, :delete, :destroy]
 
   def show
-    @user = User.find(params[:id])
+    load_user
   end
 
   def new
@@ -21,24 +21,28 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    load_user
   end
 
   def update
-
+    load_user
   end
 
   def delete
-
+    load_user
   end
 
   def destroy
-
+    load_user
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def load_user
+    @user = User.find(params[:id])
   end
 end
