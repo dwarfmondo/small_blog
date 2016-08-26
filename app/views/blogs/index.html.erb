@@ -1,2 +1,13 @@
-<h1>Blogs#index</h1>
-<p>Find me in app/views/blogs/index.html.erb</p>
+<% provide(:title, "Small Blogs") %>
+
+<div class="row">
+  <div class="small-12 medium-12 large-10">
+    <ul>
+      <% @blogs.each do |blog| %>
+        <li>
+          <%= link_to blog.name, blog %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
