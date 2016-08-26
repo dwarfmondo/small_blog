@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Gravatarable
+
   has_many :blogs
 
   has_secure_password
@@ -13,6 +15,10 @@ class User < ApplicationRecord
                         format: { with: EMAIL_REGEX }
   validates :password,  length: { minimum: 7 },
                         allow_nil: true
+
+  def initial
+    name[0, 1].upcase
+  end
 
   private
 
