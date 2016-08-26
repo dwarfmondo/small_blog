@@ -1,0 +1,21 @@
+<% provide(:title, "Start A Blog") %>
+
+<div class="row full-height align-center align-middle">
+  <div class="small-12 medium-6 large-4 columns">
+    <h2 class="text-center">Start A Blog</h2>
+    <%= form_for(@blog) do |f| %>
+      <%= error_messages_for @blog %>
+      <fieldset>
+        <%= f.label :name, "Name", required: '' %>
+        <%= f.text_field :name %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :slug, "URL", required: '' %>
+        <%= f.text_field :slug %>
+      </fieldset>
+      <p>
+        <%= f.button "Start Your Blog", class: "button expanded", data: { disable_with: 'Saving...' } %>
+      </p>
+    <% end %>
+  </div>
+</div>
