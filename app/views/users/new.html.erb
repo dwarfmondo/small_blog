@@ -1,2 +1,37 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, "Sign Up") %>
+
+<div class="row full-height align-center align-middle">
+  <div class="small-12 medium-6 large-4 columns">
+    <h2 class="text-center">Sign Up</h2>
+    <%= form_for(@user) do |f| %>
+      <%= error_messages_for @user %>
+      <fieldset>
+        <%= f.label :name, "Your Name" %>
+        <%= f.text_field :name %>
+        <p class="help-text">What shall we call you?</p>
+      </fieldset>
+      <fieldset>
+        <%= f.label :email, "Your Email" %>
+        <%= f.email_field :email %>
+        <p class="help-text">You'll use this to sign-in</p>
+      </fieldset>
+      <fieldset>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <p class="help-text">
+          7 characters or more. The stronger the better.
+        </p>
+      </fieldset>
+      <fieldset>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation %>
+        <p class="help-text">
+          One more time just to make sure
+        </p>
+      </fieldset>
+      <p>
+        <%= f.button "Create your account", class: "button expanded" %>
+      </p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.full-height {
+  height: 100%;
+}
+
+#error-explanation {
+  margin: 0 0 20px;
+  padding: 20px 20px 0;
+  background: $color-red;
+  @include clearfix;
+  @include border-radius($global-radius);
+  header {
+    margin: -20px -20px 20px -20px;
+    padding: 20px;
+    font-size: rem-calc(16);
+    font-weight: bold;
+    color: $color-white;
+    background-color: $color-red-dark;
+    @include border-top-radius($global-radius);
+  }
+  p {
+    margin-bottom: rem-calc(10);
+    color: $color-white;
+  }
+  ul {
+    color: $color-white;
+  }
+}

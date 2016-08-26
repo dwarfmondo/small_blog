@@ -53,7 +53,7 @@ $foundation-palette: (
   secondary: #777,
   success: #3adb76,
   warning: #ffae00,
-  alert: #ec5840,
+  alert: $color-red,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -68,9 +68,9 @@ $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 3px;
 $global-text-direction: ltr;
-$global-flexbox: false;
+$global-flexbox: true;
 $print-transparent-backgrounds: true;
 
 @include add-foundation-colors;
