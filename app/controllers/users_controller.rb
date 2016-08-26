@@ -22,18 +22,26 @@ class UsersController < ApplicationController
 
   def edit
     load_user
+
+    authorize! :update, @user
   end
 
   def update
     load_user
+
+    authorize! :update, @user
   end
 
   def delete
     load_user
+
+    authorize! :destroy, @user
   end
 
   def destroy
     load_user
+
+    authorize! :destroy, @user
   end
 
   private
@@ -43,6 +51,6 @@ class UsersController < ApplicationController
   end
 
   def load_user
-    @user = User.find(params[:id])
+    @user ||= User.find(params[:id])
   end
 end

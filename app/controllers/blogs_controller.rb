@@ -25,18 +25,26 @@ class BlogsController < ApplicationController
 
   def edit
     load_blog
+
+    authorize! :update, @blog
   end
 
   def update
     load_blog
+
+    authorize! :update, @blog
   end
 
   def delete
     load_blog
+
+    authorize! :destroy, @blog
   end
 
   def destroy
     load_blog
+
+    authorize! :destroy, @blog
   end
 
   private
