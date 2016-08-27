@@ -1,0 +1,15 @@
+<section class="blog-card">
+  <header>
+    <h4>
+      <%= link_to blog.name, blog, class: 'no-underline' %>
+    </h4>
+  </header>
+  <div class="row align-middle">
+    <div class="columns shrink">
+      <%= image_tag blog.user.gravatar_url(24), size: '24x24', class: 'avatar' %>
+    </div>
+    <div class="columns pinch-left">
+      <%= link_to blog.user.name, blog.user, class: 'no-underline' %>
+    </div>
+  </div>
+</section>

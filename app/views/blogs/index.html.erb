@@ -1,13 +1,7 @@
 <% provide(:title, "Small Blogs") %>
 
-<div class="row">
-  <div class="small-12 medium-12 large-10">
-    <ul>
-      <% @blogs.each do |blog| %>
-        <li>
-          <%= link_to blog.name, blog %>
-        </li>
-      <% end %>
-    </ul>
+<div class="row align-center">
+  <div class="small-12 medium-10 large-8">
+    <%= render @blogs %>
   </div>
 </div>

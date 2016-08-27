@@ -1,7 +1,3 @@
-.full-height {
-  height: 100%;
-}
-
 $site-header-height: 72px;
 $site-footer-height: 60px;
 
@@ -24,6 +20,11 @@ header[role="banner"] {
   .button {
     margin-bottom: 0;
   }
+  #branding {
+    text-decoration: none;
+    font-size: rem-calc(24);
+    font-weight: $global-weight-bold;
+  }
   #you {
     display: inline-block;
     width: 32px;
@@ -39,6 +40,15 @@ header[role="banner"] {
 
 footer[role="contentinfo"] {
   font-size: rem-calc(11);
+  .menu > li {
+    > a {
+      padding: 0;
+      line-height: $global-lineheight;
+    }
+    + li {
+      margin-left: 20px;
+    }
+  }
   p {
     margin-bottom: 0;
   }
@@ -68,8 +78,54 @@ footer[role="contentinfo"] {
   }
 }
 
+.full-height {
+  height: 100%;
+}
+
+.avatar {
+  display: inline-block;
+  @include border-radius(100%);
+}
+
+.row .columns.pinch-left {
+  padding-left: 0;
+}
+
+.mute {
+  color: $medium-gray;
+}
+
+a.no-underline {
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
 .button {
   font-size: rem-calc(14);
   height: 32px;
-  line-height: 32px;
+  line-height: 30px;
+  text-decoration: none;
+  transition: none;
+  &.round {
+    @include border-radius(999em);
+  }
+  &.hollow.success {
+    &:hover,
+    &:focus {
+      border-color: $color-green;
+      background-color: $white;
+      color: $color-green;
+    }
+  }
+}
+
+.blog-card {
+  padding: 20px;
+  margin: 0 0 20px;
+  border: 1px solid $light-gray;
+  @include border-radius($global-radius);
 }

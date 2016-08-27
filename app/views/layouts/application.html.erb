@@ -17,19 +17,19 @@
           <div class="row">
             <% if signed_in? %>
               <div class="columns large-text-right">
-                <%= link_to "Start a Blog", new_blog_path, class: 'button hollow success' %>
+                <%= link_to "Start a Blog", new_blog_path, class: 'button round hollow success' %>
               </div>
-              <div class="columns shrink">
+              <div class="columns shrink pinch-left">
                 <a id="you" href="<%= user_path(current_user) %>" style="background-image: url(<%= current_user.gravatar_url %>)">
                   <%= current_user.initial %>
                 </a>
               </div>
             <% else %>
               <div class="columns text-right">
-                <%= link_to "Start a Blog", new_user_path, class: 'button hollow success' %>
+                <%= link_to "Start a Blog", new_user_path, class: 'button round hollow success' %>
               </div>
               <div class="columns shrink">
-                <%= link_to "Sign In", signin_path, class: 'button hollow secondary' %>
+                <%= link_to "Sign In", signin_path %>
               </div>
             <% end %>
           </div>
@@ -40,8 +40,26 @@
       </main>
     </div>
     <footer role="contentinfo" class="row align-middle">
-      <div class="small-12 columns text-center">
-        <p>Footer content</p>
+      <div class="small-12 medium-6 columns">
+        <ul class="menu">
+          <li>
+            <a href="/" class="no-underline mute">Help</a>
+          </li>
+          <li>
+            <a href="/" class="no-underline mute">About</a>
+          </li>
+          <li>
+            <a href="/" class="no-underline mute">Privacy</a>
+          </li>
+          <li>
+            <a href="/" class="no-underline mute">Terms</a>
+          </li>
+        </ul>
+      </div>
+      <div class="columns text-right">
+        <p class="mute">
+          Matt Vasquez <%= Date.today.year %>
+        </p>
       </div>
     </footer>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
