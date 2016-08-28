@@ -1,8 +1,26 @@
 <% provide(:title, @blog.name) %>
 
 <div class="row">
-  <div class="small-12 columns">
-    <h2><%= @blog.name %></h2>
-    <p><%= @blog.slug %></p>
+  <div class="small-12 medium-8 columns">
+    <div class="row align-middle margin-bottom-20">
+      <div class="columns">
+        <h2 class="margin-bottom-0">
+          <%= @blog.name %>
+        </h2>
+      </div>
+      <div class="columns shrink">
+        <%= link_to "New Post", new_blog_post_path(@blog), class: 'button hollow success round' %>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 large-4 columns text-center">
+    <p>
+      <%= image_tag @blog.user.gravatar_url(128), size: '128x128', class: 'avatar auto-center' %>
+    </p>
+    <p>
+      <%= @blog.user.name %>
+      <br />
+      <%= @blog.user.email %>
+    </p>
   </div>
 </div>

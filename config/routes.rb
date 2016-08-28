@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
-
-  get 'blogs/show'
-
   get     '/signup',  to: 'users#new'
   get     '/signin',  to: 'sessions#new'
   post    '/signin',  to: 'sessions#create'

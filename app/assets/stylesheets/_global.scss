@@ -82,9 +82,22 @@ footer[role="contentinfo"] {
   height: 100%;
 }
 
+.auto-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .avatar {
   display: inline-block;
   @include border-radius(100%);
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20;
 }
 
 .row .columns.pinch-left {
