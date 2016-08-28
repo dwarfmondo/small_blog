@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
-  belongs_to :user
+  belongs_to  :user
+  has_many    :posts
 
   SLUG_REGEX = /\A[A-Za-z0-9-]+\z/
 
