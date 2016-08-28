@@ -54,6 +54,6 @@ class BlogsController < ApplicationController
   end
 
   def load_blog
-    @blog ||= Blog.includes(:user).find(params[:id])
+    @blog ||= Blog.includes(:user).find_by(slug: params[:id])
   end
 end

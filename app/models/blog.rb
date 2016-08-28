@@ -8,14 +8,17 @@ class Blog < ApplicationRecord
   validates :name,  presence: true
   validates :slug,  presence: true,
                     uniqueness: {
-                      case_sensitive: false,
-                      scope: :user_id
+                      case_sensitive: false
                     },
                     length: { within: 3..30 },
                     format: {
                       with: SLUG_REGEX,
                       message: ' can only contain alphanumeric characters and dashes'
                     }
+
+  def to_param
+    slug
+  end
 
   private
 
