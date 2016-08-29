@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include Gravatarable
 
-  has_many :blogs
+  has_many :blogs, dependent: :destroy
 
   has_secure_password
 

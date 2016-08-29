@@ -1,6 +1,6 @@
 class Blog < ApplicationRecord
   belongs_to  :user
-  has_many    :posts
+  has_many    :posts, dependent: :destroy
 
   SLUG_REGEX = /\A[A-Za-z0-9-]+\z/
 
