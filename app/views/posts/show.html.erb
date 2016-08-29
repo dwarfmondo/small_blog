@@ -1,2 +1,33 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<% provide(:title, @post.title) %>
+
+<div class="row">
+  <div class="small-12 medium-8 columns">
+    <p class="margin-bottom-10">
+      <small>
+        <%= link_to @blog.name, @blog %>
+      </small>
+    </p>
+    <div class="row align-middle margin-bottom-20">
+      <div class="columns">
+        <h3 class="margin-bottom-5">
+          <%= @post.title %>
+        </h3>
+        <p class="mute margin-bottom-0">
+          <small>
+            <%= "Posted #{@post.created_at.strftime("%A, %B %d at %I:%M %p")}" %>
+          </small>
+        </p>
+      </div>
+      <% if can?(:update, @post) %>
+        <div class="columns shrink">
+          <%= link_to "Edit", edit_blog_post_path(@blog, @post), class: 'button hollow round' %>
+        </div>
+      <% end %>
+    </div>
+    <hr />
+    <%= markdown(@post.content) %>
+  </div>
+  <div class="small-12 large-4 columns text-center">
+    <%= render 'user', user: @blog.user, size: 128 %>
+  </div>
+</div>

@@ -11,7 +11,7 @@
       <div class="columns shrink">
         <%= link_to "New Post", new_blog_post_path(@blog), class: 'button hollow success round' %>
         <% if can?(:update, @blog) %>
-          <%= link_to "Edit", edit_blog_path(@blog), class: 'button hollow secondary round' %>
+          <%= link_to "Edit", edit_blog_path(@blog), class: 'button hollow round' %>
         <% end %>
       </div>
     </div>
