@@ -18,9 +18,14 @@
           </small>
         </p>
       </div>
-      <% if can?(:update, @post) %>
+      <% if can?(:update, @post) || can?(:destroy, @post) %>
         <div class="columns shrink">
-          <%= link_to "Edit", edit_blog_post_path(@blog, @post), class: 'button hollow round' %>
+          <% if can?(:update, @post) %>
+            <%= link_to "Edit", edit_blog_post_path(@blog, @post), class: 'button hollow round' %>
+          <% end %>
+          <% if can?(:destroy, @post) %>
+            <%= link_to "Delete", blog_post_path(@blog, @post), class: 'button hollow alert round', method: :delete, data: { confirm: "Are you sure?" } %>
+          <% end %>
         </div>
       <% end %>
     </div>

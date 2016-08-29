@@ -45,7 +45,14 @@ class PostsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    load_post
+
+    authorize! :destroy, @post
+
+    @post.destroy
+
+    redirect_to blog_path(@blog)
   end
 
   private
