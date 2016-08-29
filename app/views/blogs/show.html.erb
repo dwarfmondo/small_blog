@@ -9,7 +9,9 @@
         </h3>
       </div>
       <div class="columns shrink">
-        <%= link_to "New Post", new_blog_post_path(@blog), class: 'button hollow success round' %>
+        <% if can?(:create, Post.new(blog: @blog)) %>
+          <%= link_to "New Post", new_blog_post_path(@blog), class: 'button hollow success round' %>
+        <% end %>
         <% if can?(:update, @blog) %>
           <%= link_to "Edit", edit_blog_path(@blog), class: 'button hollow round' %>
         <% end %>

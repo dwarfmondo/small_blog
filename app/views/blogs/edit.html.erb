@@ -1,0 +1,16 @@
+<% provide(:title, "Edit Your Blog") %>
+
+<div class="row align-center align-middle">
+  <div class="small-12 medium-6 large-4 columns">
+    <h3 class="text-center margin-bottom-20">Edit Your Blog</h3>
+    <hr />
+    <%= form_for(@blog) do |f| %>
+      <%= error_messages_for @blog %>
+      <%= render 'form', f: f %>
+      <p>
+        <%= f.button "Save Changes", class: 'button', data: { disable_with: 'Saving...' } %>
+        <%= link_to "Cancel", @blog, class: 'button hollow secondary' %>
+      </p>
+    <% end %>
+  </div>
+</div>

@@ -33,6 +33,12 @@ class BlogsController < ApplicationController
     load_blog
 
     authorize! :update, @blog
+
+    if @blog.update_attributes(blog_params)
+      redirect_to @blog
+    else
+      render :edit
+    end
   end
 
   def delete

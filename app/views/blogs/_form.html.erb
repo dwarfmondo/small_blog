@@ -1,0 +1,9 @@
+<fieldset>
+  <%= f.label :name, "Name", class: 'required' %>
+  <%= f.text_field :name, required: '' %>
+</fieldset>
+<fieldset>
+  <%= f.label :slug, "URL", class: 'required' %>
+  <%= f.text_field :slug, required: '' %>
+  <p class="help-text">Must be unique, at least 3 characters and at most 30.</p>
+</fieldset>

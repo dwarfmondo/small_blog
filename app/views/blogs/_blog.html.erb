@@ -1,22 +1,32 @@
 <section class="card">
-  <div class="row align-middle">
-    <div class="columns">
-      <header>
+  <header>
+    <div class="row align-middle">
+      <div class="columns">
         <h4>
           <%= link_to blog.name, blog, class: 'no-underline' %>
         </h4>
-      </header>
-      <div class="row align-middle">
-        <div class="columns shrink">
-          <%= image_tag blog.user.gravatar_url(24), size: '24x24', class: 'avatar' %>
-        </div>
-        <div class="columns pinch-left">
-          <%= link_to blog.user.name, blog.user, class: 'no-underline' %>
+        <div class="row align-middle margin-bottom-20">
+          <div class="columns shrink">
+            <%= image_tag blog.user.gravatar_url(24), size: '24x24', class: 'avatar' %>
+          </div>
+          <div class="columns pinch-left">
+            <em>by</em>
+            <%= link_to blog.user.name, blog.user, class: 'no-underline' %>
+          </div>
         </div>
       </div>
+      <div class="columns shrink">
+        <%= link_to "View", blog_path(blog), class: 'button hollow round' %>
+      </div>
     </div>
-    <div class="columns shrink">
-      <%= link_to "View", blog_path(blog), class: 'button hollow round' %>
-    </div>
-  </div>
+  </header>
+  <hr />
+  <p class="margin-bottom-0 mute">
+    <% if blog.posts.any? %>
+      <em>Latest post:</em>
+      <%= link_to blog.posts.latest.title, blog_post_path(blog, blog.posts.latest), class: 'mute no-underline' %>
+    <% else %>
+      <em class="mute">No posts have been created</em>
+    <% end %>
+  </p>
 </section>
