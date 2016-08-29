@@ -1,0 +1,16 @@
+<% provide(:title, @user.name) %>
+
+<div class="row align-center">
+  <div class="small-12 medium-8 large-6 columns">
+    <div class="text-center">
+      <%= render 'user', user: @user, size: 128 %>
+    </div>
+    <% if @user.blogs.any? %>
+      <%= render @user.blogs %>
+    <% else %>
+      <hr />
+      <p class="mute">
+        No blogs have been started
+      </p>
+    <% end %>
+</div>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:edit, :update, :delete, :destroy]
 
   def show
-    load_user
+    @user = User.includes(:blogs).order('blogs.created_at DESC').references(:blogs).find(params[:id])
   end
 
   def new
