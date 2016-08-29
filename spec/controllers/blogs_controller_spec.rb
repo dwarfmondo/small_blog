@@ -11,7 +11,8 @@ RSpec.describe BlogsController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      blog = create(:blog)
+      get :show, id: blog
       expect(response).to have_http_status(:success)
     end
   end
