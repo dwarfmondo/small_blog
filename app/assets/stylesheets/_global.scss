@@ -232,6 +232,27 @@ textarea {
   line-height: 1.5;
 }
 
+.field_with_errors {
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select,
+  textarea {
+    border-color: $color-red;
+  }
+}
+
 .card {
   padding: 20px;
   margin: 0 0 20px;
