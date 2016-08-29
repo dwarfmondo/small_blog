@@ -19,10 +19,23 @@
               <div class="columns large-text-right">
                 <%= link_to "Start a Blog", new_blog_path, class: 'button round hollow success' %>
               </div>
-              <div class="columns shrink pinch-left">
-                <a id="you" href="<%= user_path(current_user) %>" style="background-image: url(<%= current_user.gravatar_url %>)">
+              <div class="columns shrink pinch-left pos-rel">
+                <button id="you" class="float-right" data-toggle="you-menu" style="background-image: url(<%= current_user.gravatar_url %>)">
                   <%= current_user.initial %>
-                </a>
+                </button>
+                <div id="you-menu" class="dropdown-pane small" data-dropdown data-position-class="bottom" data-close-on-click="true" data-v-offset="10">
+                  <ul class="menu simple vertical">
+                    <li>
+                      <%= link_to "Your Profile", current_user, class: 'no-underline' %>
+                    </li>
+                    <li>
+                      <%= link_to "Settings", edit_user_path(current_user), class: 'no-underline' %>
+                    </li>
+                    <li>
+                      <%= link_to "Sign Out", signout_path, class: 'no-underline', method: :delete %>
+                    </li>
+                  </ul>
+                </div>
               </div>
             <% else %>
               <div class="columns text-right">

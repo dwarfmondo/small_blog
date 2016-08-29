@@ -1,3 +1,5 @@
+@import 'util/mixins';
+
 $site-header-height: 72px;
 $site-footer-height: 60px;
 
@@ -35,6 +37,38 @@ header[role="banner"] {
     text-decoration: none;
     @include hide-text(left);
     @include border-radius(100%);
+  }
+  #you-menu {
+    left: auto !important;
+    right: 15px !important;
+    width: 150px !important;
+    &:before {
+      @include css-triangle(6px, $white, up);
+      position: absolute;
+      top: -6px;
+      right: 10px;
+      bottom: auto;
+      left: auto;
+      z-index: 99;
+    }
+    &:after {
+      @include css-triangle(7px, $medium-gray, up);
+      position: absolute;
+      top: -7px;
+      right: 9px;
+      bottom: auto;
+      left: auto;
+      z-index: 98;
+    }
+    ul.menu > li {
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      > a {
+        font-size: rem-calc(13);
+      }
+    }
   }
 }
 
@@ -76,6 +110,10 @@ footer[role="contentinfo"] {
   ul {
     color: $color-white;
   }
+}
+
+.pos-rel {
+  position: relative;
 }
 
 .full-height {
