@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    load_blog
+    @blog = Blog.includes(:user, :posts).order('posts.created_at DESC').references(:posts).find_by(slug: params[:id])
   end
 
   def new

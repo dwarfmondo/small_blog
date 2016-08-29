@@ -4,23 +4,27 @@
   <div class="small-12 medium-8 columns">
     <div class="row align-middle margin-bottom-20">
       <div class="columns">
-        <h2 class="margin-bottom-0">
+        <h3 class="margin-bottom-0">
           <%= @blog.name %>
-        </h2>
+        </h3>
       </div>
       <div class="columns shrink">
         <%= link_to "New Post", new_blog_post_path(@blog), class: 'button hollow success round' %>
+        <% if can?(:update, @blog) %>
+          <%= link_to "Edit", edit_blog_path(@blog), class: 'button hollow secondary round' %>
+        <% end %>
       </div>
     </div>
+    <hr />
+    <% if @blog.posts.any? %>
+      <%= render partial: 'post', collection: @blog.posts, as: 'post' %>
+    <% else %>
+      <p class="text-center mute">
+        No posts have been created
+      </p>
+    <% end %>
   </div>
   <div class="small-12 large-4 columns text-center">
-    <p>
-      <%= image_tag @blog.user.gravatar_url(128), size: '128x128', class: 'avatar auto-center' %>
-    </p>
-    <p>
-      <%= @blog.user.name %>
-      <br />
-      <%= @blog.user.email %>
-    </p>
+    <%= render 'user', user: @blog.user, size: 128 %>
   </div>
 </div>

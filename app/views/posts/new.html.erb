@@ -1,2 +1,19 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% provide(:title, "New Post") %>
+
+<div class="row">
+  <div class="small-12 medium-8 columns">
+    <h3 class="margin-bottom-20"><%= @blog.name %></h3>
+    <hr />
+    <%= form_for(@post, url: blog_posts_path(@blog)) do |f| %>
+      <%= error_messages_for @post %>
+      <%= render 'form', f: f %>
+      <p>
+        <%= f.button "Save Post", class: 'button success', data: { disable_with: 'Saving...' } %>
+        <%= link_to "Cancel", blog_path(@blog), class: 'button secondary hollow' %>
+      </p>
+    <% end %>
+  </div>
+  <div class="small-12 large-4 columns text-center">
+    <%= render 'user', user: current_user, size: 128 %>
+  </div>
+</div>

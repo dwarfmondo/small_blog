@@ -1,0 +1,8 @@
+<p>
+  <%= image_tag user.gravatar_url(size), size: "#{size}x#{size}", class: 'avatar auto-center' %>
+</p>
+<p>
+  <%= link_to user.name, user, class: 'no-underline' %>
+  <br />
+  <%= mail_to user.email, user.email, class: 'no-underline' %>
+</p>
